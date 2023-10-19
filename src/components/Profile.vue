@@ -2,6 +2,11 @@
 <script setup lang="ts">
     import { ref } from 'vue';
 
+    import Brazil from "@/assets/brazil.svg"
+    import Usa from "@/assets/usa.svg"
+    import Span from "@/assets/spain.svg"
+
+
     const text = ref("Olá, meu nome é Samuel Jorge Matheus e eu sou Desenvolvedor Front-end, Tecnologias que tenho experiência:");
     const pt = ref("Olá, meu nome é Samuel Jorge Matheus e eu sou Desenvolvedor Front-end, Tecnologias que tenho experiência:");
     const ingl = ref("Hello, my name is Samuel Jorge Matheus and I am a Front-end Developer, Technologies I have experience with:");
@@ -17,19 +22,19 @@
     const linguagens = ref([
     {
         type: "button",
-        image: "../assets/usa.svg",
+        image: Usa,
         linguagens: "Inglês",
         myfunction: () => (text.value = ingl.value),
     },
     {
         type: "button",
-        image: "../assets/logo.png",
+        image: Brazil,
         linguagens: "Português",
         myfunction: () => (text.value = pt.value),
     },
     {
         type: "button",
-        image: "../spain.svg",
+        image: Span,
         linguagens: "Espanhol",
         myfunction: () => (text.value = spa.value),
     },
@@ -58,7 +63,7 @@
       <div class="flex justify-center mt-96">
   
         <div class="flex items-center mx-7 bg-bgImg  p-2 rounded-lg mt-16" v-for="lig in linguagens" :key="lig.linguagens">
-          <img class="mr-2" src="../assets/usa.svg" >
+          <img class="mr-2" :src="lig.image" >
           <button @click="lig.myfunction">{{ lig.linguagens }}</button>
         </div>
   
